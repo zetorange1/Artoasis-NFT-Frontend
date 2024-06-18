@@ -1,0 +1,76 @@
+:root {
+  --primary-color: #273a4c;
+  --shadow-color: #626262;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Rubik;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: transparent
+    radial-gradient(closest-side at 50% 50%, #000000 0%, #37392b 100%);
+  background-position: 30% -8% !important;
+  padding: 0 !important;
+  overflow: auto !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.scrollbox {
+  overflow-y: auto !important;
+}
+
+.scrollbox::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.scrollbox::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.shadow-widget {
+  box-shadow: 8px 8px 0 0 var(--shadow-color) !important;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: local("Press Start 2P"),
+    url(./fonts/PressStart2P-Regular.ttf) format("truetype");
+}
+
+/* @font-face {
+  font-family: "Akira Expanded";
+  src: local("Akira Expanded"),
+    url(./fonts/Akira\ Expanded\ Demo.otf) format("opentype");
+} */
+
+.ff-label {
+  font-family: "Press Start 2P" !important;
+}
+
+.ff-primary {
+  font-family: "Rubik" !important;
+}

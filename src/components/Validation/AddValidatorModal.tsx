@@ -1,0 +1,82 @@
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { Divider, Grid, TextField } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "white",
+  borderRadius: 4,
+  boxShadow: 24,
+  p: 2,
+};
+
+interface Props {
+  show: boolean;
+  handleClose: () => void;
+  addValidator: (address: string) => void;
+}
+
+export default function AddValidatorModal({
+  show,
+  handleClose,
+  addValidator,
+}: Props) {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <Modal open={show} onClose={handleClose}>
+      <Box sx={style as any}>
+        <Typography variant="h6" component="h2" gutterBottom mb={3}>
+          Add a validator
+        </Typography>
+        <Box mb={3}>
+          <TextField
+            fullWidth
+            label="Input the validator address"
+            color="primary"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            InputProps={{
+              color: "primary",
+              style: {
+                color: "black",
+              },
+            }}
+            InputLabelProps={{
+              style: {
+                color: "#555",
+              },
+            }}
+            FormHelperTextProps={{
+              style: {
+                color: "#555",
+              },
+            }}
+          />
+        </Box>
+        <Divider />
+        <Grid mt={2} container justifyContent="flex-end">
+          <Button variant="outlined" color="primary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button
+            style={{ marginLeft: 12 }}
+            variant="contained"
+            color="primary"
+            disabled={!value}
+            onClick={() => addValidator(value)}
+          >
+            Add
+          </Button>
+        </Grid>
+      </Box>
+    </Modal>
+  );
+}
